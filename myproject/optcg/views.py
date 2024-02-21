@@ -28,7 +28,6 @@ def random_card(request):
 
 
     context = {
-        #'image_path': image_path,
         'card_number': card_number,
         'name': name,
         'cost': cost,
