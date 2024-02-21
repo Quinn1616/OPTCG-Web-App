@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Card</title>
+    <style>
+        body {
+            background: black url('https://wallpapers.com/images/hd/one-piece-wano-big-fight-l1geis1030ftlwm1.jpg') no-repeat top;
+            background-size: cover;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        button:not(#new-card) {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            background-color: #ad0606;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #7e0404;
+        }
+        #random-card {
+            background-color: #00000090;
+            border: 3px solid #ad060690;
+            border-radius: 10px;
+            max-width: 400px;
+            padding: 10px;
+            margin: 20px auto;
+        }
+        #new-card {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ad0606;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        #refresh-button {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        #new-card:hover {
+            background-color: #7e0404;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'home' %}"><button>Back</button></a>
+    <div id="random-card">
+        <h1>Random Card:</h1>
+        <p>Card Number: {{ card_number }}</p>
+        <p>Name: {{ name }}</p>
+        <p>Cost: {{ cost }}</p>
+        <p>Power: {{ power }}</p>
+        <p>Tag: {{ tag }}</p>
+        <p>Effect: {{ effect }}</p>
+        <p>Counter: {{ counter }}</p>
+        <p>Type: {{ card_type }}</p>
+        <p>Is Blocker: {{ is_blocker }}</p>
+        <p>Is Rush: {{ is_rush }}</p>
+        <p>Archetype: {{ card_architype }}</p>
+    </div>
+    <a href="{% url 'random_card' %}" id="refresh-button"><button id="new-card">New Card</button></a>
+</body>
+</html>

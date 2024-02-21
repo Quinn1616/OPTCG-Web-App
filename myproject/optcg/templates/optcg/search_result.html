@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Result</title>
+    <style>
+        body {
+            background: black url('https://wallpapers.com/images/hd/one-piece-wano-big-fight-l1geis1030ftlwm1.jpg') no-repeat top;
+            background-size: cover;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            background-color: #ad0606;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #7e0404;
+        }
+        #search-result {
+            background-color: #00000090;
+            border: 3px solid #ad060690;
+            border-radius: 10px;
+            max-width: 400px;
+            padding: 10px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'search_card' %}"><button>Back</button></a>
+    <div id="search-result">
+    <h1>Search Result</h1>
+    <p>Card Number: {{ card_number }}</p>
+    <p>Name: {{ name }}</p>
+    <p>Cost: {{ cost }}</p>
+    <p>Power: {{ power }}</p>
+    <p>Tag: {{ tag }}</p>
+    <p>Effect: {{ effect }}</p>
+    <p>Counter: {{ counter }}</p>
+    <p>Card Type: {{ card_type }}</p>
+    <p>Is Blocker: {{ is_blocker }}</p>
+    <p>Is Rush: {{ is_rush }}</p>
+    <p>Card Architype: {{ card_architype }}</p>
+    </div>
+</body>
+</html>

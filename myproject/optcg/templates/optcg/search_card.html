@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Card</title>
+    <style>
+        body {
+            background: black url('https://wallpapers.com/images/hd/one-piece-wano-big-fight-l1geis1030ftlwm1.jpg') no-repeat top;
+            background-size: cover;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form label {
+            color: white;
+            margin-bottom: 5px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form input {
+            border-radius: 5px;
+            padding: 5px;
+            border: none;
+        }
+        form button {
+            padding: 10px;
+            margin: 20px 0;
+            font-size: 16px;
+            background-color: #ad0606;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            background-color: #ad0606;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #7e0404;
+        }
+        #search-card {
+            background-color: #00000090;
+            border: 3px solid #ad060690;
+            border-radius: 10px;
+            max-width: 400px;
+            padding: 10px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'home' %}"><button>Back</button></a>
+    <div id="search-card">
+    <h1>Search for a Card</h1>
+    <form action="{% url 'search_card' %}" method="GET">
+        <label for="card_number">Enter Card Number:</label>
+        <input type="text" id="card_number" name="card_number">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if card %}
+    <div>
+        <h2>Card Details</h2>
+        <p><strong>Card Number:</strong> {{ card.card_number }}</p>
+        <p><strong>Name:</strong> {{ card.name }}</p>
+        <p><strong>Cost:</strong> {{ card.cost }}</p>
+        <p><strong>Power:</strong> {{ card.power }}</p>
+        <p><strong>Tag:</strong> {{ card.tag }}</p>
+        <p><strong>Effect:</strong> {{ card.effect }}</p>
+        <p><strong>Counter:</strong> {{ card.counter }}</p>
+        <p><strong>Card Type:</strong> {{ card.card_type }}</p>
+        <p><strong>Is Blocker:</strong> {{ card.is_blocker }}</p>
+        <p><strong>Is Rush:</strong> {{ card.is_rush }}</p>
+        <p><strong>Card Archetype:</strong> {{ card.card_archetype }}</p>
+    </div>
+    </div>
+    {% endif %}
+</body>
+</html>
